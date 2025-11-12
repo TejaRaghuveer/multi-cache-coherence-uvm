@@ -1,4 +1,4 @@
-﻿# Multi-Level Cache Coherency Verification Environment
+# Multi-Level Cache Coherency Verification Environment
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)
@@ -20,6 +20,7 @@
 - [Coverage & Reporting](#coverage--reporting)
 - [Debug & Trace Support](#debug--trace-support)
 - [Author & Credits](#author--credits)
+- [Contact](#contact)
 
 ---
 
@@ -203,5 +204,6 @@ graph TB
 - Shared models (`cache_state_model`, `cache_model_mgr`) can be queried during debug to reconstruct coherence state at any point in the simulation.
 - Scoreboard and checker messages include address, expected versus observed state/data, and owning agent to speed diagnosis.
 
-## Author & Credits
-Created by Teja Raghuveer. Inspired by collaborative CPU verification efforts that emphasize rigorous coherency validation. Feedback and collaboration are welcome; feel free to open issues or reach out for integration guidance.
+## Author & Credits\nCreated by Teja Raghuveer. Inspired by collaborative CPU verification efforts that emphasize rigorous coherency validation. Feedback and collaboration are welcome; feel free to open issues or reach out for integration guidance.\n\n## Contact\n- **Name:** Teja Raghuveer\n- **Email:** tejaraghuveer@gmail.com\n- **LinkedIn:** [raghu-veer](https://www.linkedin.com/in/raghu-veer-856746289/)
+
+
