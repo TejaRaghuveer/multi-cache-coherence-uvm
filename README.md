@@ -25,6 +25,55 @@
 ## Project Overview
 This repository contains a reusable UVM-based verification environment targeting multi-level cache coherency. The testbench models MESI/MOESI behavior across L1 and L2 caches, providing agents, stateful functional models, robust scoreboards, and automated regression tooling so reviewers can evaluate coherency correctness end-to-end.
 
+### Architecture Diagram
+
+![Architecture Diagram](assets/architecture_diagram.svg)
+
+```mermaid
+graph TB
+    subgraph "Test Layer"
+        SEQ[Coherence Sequences<br/>State Walk, Upgrade, Conflict]
+    end
+    
+    subgraph "Agent Layer"
+        L1[L1 Agent<br/>Sequencer | Driver | Monitor]
+        L2[L2 Agent<br/>Sequencer | Driver | Monitor]
+    end
+    
+    subgraph "DUT"
+        CACHE[Multi-Level Cache<br/>L1/L2 Hierarchy]
+    end
+    
+    subgraph "Reference Models"
+        STATE[State Model<br/>MESI/MOESI Tracker]
+        FUNC[Cache Model Mgr<br/>Functional Cache Models]
+    end
+    
+    subgraph "Verification Components"
+        SB[Scoreboard<br/>Data Consistency Check]
+        CHK[State Checker<br/>Protocol Compliance]
+        COV[Coverage Collector<br/>Functional Coverage]
+        TRACE[Trace Manager<br/>Transaction Logging]
+    end
+    
+    SEQ -->|stimulus| L1
+    SEQ -->|stimulus| L2
+    L1 -->|drive| CACHE
+    L2 -->|drive| CACHE
+    CACHE -->|observe| L1
+    CACHE -->|observe| L2
+    L1 -->|events| STATE
+    L2 -->|events| STATE
+    L1 -->|events| FUNC
+    L2 -->|events| FUNC
+    STATE -->|validate| CHK
+    FUNC -->|compare| SB
+    L1 -->|coverage| COV
+    L2 -->|coverage| COV
+    L1 -->|trace| TRACE
+    L2 -->|trace| TRACE
+```
+
 ## Project Objectives
 - Demonstrate protocol compliance for MESI/MOESI caches interacting over shared interconnects.
 - Guarantee single-Modified ownership, timely invalidations, and consistent data visibility across cores.

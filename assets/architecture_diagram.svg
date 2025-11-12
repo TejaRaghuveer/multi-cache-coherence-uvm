@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <style>
+      .box { fill: #e1f5ff; stroke: #0277bd; stroke-width: 2; }
+      .agent { fill: #fff3e0; stroke: #ef6c00; stroke-width: 2; }
+      .model { fill: #f3e5f5; stroke: #7b1fa2; stroke-width: 2; }
+      .checker { fill: #e8f5e9; stroke: #2e7d32; stroke-width: 2; }
+      .text { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; }
+      .title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .arrow { stroke: #424242; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#424242" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="30" class="title">Multi-Level Cache Coherency Verification Architecture</text>
+  
+  <!-- Sequences Layer -->
+  <rect x="50" y="60" width="150" height="40" class="box" rx="5"/>
+  <text x="125" y="85" class="text">Sequences</text>
+  
+  <!-- L1 Agent -->
+  <rect x="50" y="140" width="150" height="80" class="agent" rx="5"/>
+  <text x="125" y="160" class="title">L1 Agent</text>
+  <text x="125" y="180" class="text">Sequencer</text>
+  <text x="125" y="195" class="text">Driver | Monitor</text>
+  
+  <!-- L2 Agent -->
+  <rect x="250" y="140" width="150" height="80" class="agent" rx="5"/>
+  <text x="325" y="160" class="title">L2 Agent</text>
+  <text x="325" y="180" class="text">Sequencer</text>
+  <text x="325" y="195" class="text">Driver | Monitor</text>
+  
+  <!-- DUT -->
+  <rect x="450" y="140" width="150" height="80" class="box" rx="5"/>
+  <text x="525" y="180" class="title">DUT</text>
+  <text x="525" y="200" class="text">Cache System</text>
+  
+  <!-- Shared State Model -->
+  <rect x="50" y="280" width="150" height="60" class="model" rx="5"/>
+  <text x="125" y="300" class="title">State Model</text>
+  <text x="125" y="320" class="text">MESI/MOESI</text>
+  
+  <!-- Functional Models -->
+  <rect x="250" y="280" width="150" height="60" class="model" rx="5"/>
+  <text x="325" y="300" class="title">Cache Model Mgr</text>
+  <text x="325" y="320" class="text">L1/L2 Models</text>
+  
+  <!-- Scoreboard -->
+  <rect x="450" y="280" width="150" height="60" class="checker" rx="5"/>
+  <text x="525" y="300" class="title">Scoreboard</text>
+  <text x="525" y="320" class="text">Data Check</text>
+  
+  <!-- Checkers -->
+  <rect x="50" y="380" width="150" height="60" class="checker" rx="5"/>
+  <text x="125" y="400" class="title">State Checker</text>
+  <text x="125" y="420" class="text">Protocol Rules</text>
+  
+  <!-- Coverage -->
+  <rect x="250" y="380" width="150" height="60" class="checker" rx="5"/>
+  <text x="325" y="400" class="title">Coverage</text>
+  <text x="325" y="420" class="text">Collector</text>
+  
+  <!-- Trace Manager -->
+  <rect x="450" y="380" width="150" height="60" class="checker" rx="5"/>
+  <text x="525" y="400" class="title">Trace Manager</text>
+  <text x="525" y="420" class="text">Logging</text>
+  
+  <!-- Arrows: Sequences to Agents -->
+  <path d="M 125 100 L 125 140" class="arrow"/>
+  <path d="M 125 100 L 325 140" class="arrow"/>
+  
+  <!-- Arrows: Agents to DUT -->
+  <path d="M 200 180 L 450 180" class="arrow"/>
+  <path d="M 400 180 L 450 180" class="arrow"/>
+  
+  <!-- Arrows: Monitors to Models/Checkers -->
+  <path d="M 125 220 L 125 280" class="arrow"/>
+  <path d="M 325 220 L 325 280" class="arrow"/>
+  <path d="M 200 220 L 525 280" class="arrow"/>
+  <path d="M 400 220 L 525 280" class="arrow"/>
+  
+  <!-- Arrows: Models to Checkers -->
+  <path d="M 125 340 L 125 380" class="arrow"/>
+  <path d="M 200 310 L 325 380" class="arrow"/>
+  <path d="M 400 310 L 450 380" class="arrow"/>
+  <path d="M 200 220 L 450 380" class="arrow"/>
+  
+  <!-- Legend -->
+  <rect x="650" y="60" width="130" height="180" fill="white" stroke="#424242" stroke-width="1" rx="5"/>
+  <text x="715" y="80" class="title">Legend</text>
+  <rect x="660" y="90" width="20" height="15" class="box"/>
+  <text x="690" y="102" class="text" text-anchor="start" font-size="10">Test Components</text>
+  <rect x="660" y="115" width="20" height="15" class="agent"/>
+  <text x="690" y="127" class="text" text-anchor="start" font-size="10">UVM Agents</text>
+  <rect x="660" y="140" width="20" height="15" class="model"/>
+  <text x="690" y="152" class="text" text-anchor="start" font-size="10">Reference Models</text>
+  <rect x="660" y="165" width="20" height="15" class="checker"/>
+  <text x="690" y="177" class="text" text-anchor="start" font-size="10">Checkers/Scoreboard</text>
+</svg>
