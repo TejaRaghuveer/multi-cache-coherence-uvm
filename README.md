@@ -1,5 +1,11 @@
 ﻿# Multi-Level Cache Coherency Verification Environment
 
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)
+![Coverage](https://img.shields.io/badge/coverage-functional-orange.svg)
+![UVM](https://img.shields.io/badge/UVM-1.2-purple.svg)
+![SystemVerilog](https://img.shields.io/badge/SystemVerilog-2012-red.svg)
+
 ---
 
 ## Table of Contents
