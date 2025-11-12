@@ -1,0 +1,53 @@
+﻿# Build / simulation outputs
+sim/
+work/
+worklib/
+*.log
+*.jou
+*.wlf
+*.ucdb
+*.vcd
+*.fsdb
+*.dsn
+*.svf
+*.rst
+*.chk
+*.ucis
+*.cov
+*.key
+*.tcl
+*.out
+*.err
+*.tmp
+*.dmp
+*.bak
+*.cfg
+*.db
+*.ucm
+*.psf
+*.sdb
+transcript
+questasim.ini
+
+# Generated reports
+results/
+logs/
+coverage/
+urgReport*
+
+# Trace archives
+cache_trace_*.log
+cache_trace_*.log.zip
+
+# IDE / editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Python cache
+__pycache__/
+*.pyc
