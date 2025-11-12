@@ -20,7 +20,6 @@
 - [Coverage & Reporting](#coverage--reporting)
 - [Debug & Trace Support](#debug--trace-support)
 - [Author & Credits](#author--credits)
-- [Contact](#contact)
 
 ---
 
@@ -31,51 +30,7 @@ This repository contains a reusable UVM-based verification environment targeting
 
 ![Architecture Diagram](assets/architecture_diagram.svg)
 
-```mermaid
-graph TB
-    subgraph "Test Layer"
-        SEQ[Coherence Sequences<br/>State Walk, Upgrade, Conflict]
-    end
-    
-    subgraph "Agent Layer"
-        L1[L1 Agent<br/>Sequencer | Driver | Monitor]
-        L2[L2 Agent<br/>Sequencer | Driver | Monitor]
-    end
-    
-    subgraph "DUT"
-        CACHE[Multi-Level Cache<br/>L1/L2 Hierarchy]
-    end
-    
-    subgraph "Reference Models"
-        STATE[State Model<br/>MESI/MOESI Tracker]
-        FUNC[Cache Model Mgr<br/>Functional Cache Models]
-    end
-    
-    subgraph "Verification Components"
-        SB[Scoreboard<br/>Data Consistency Check]
-        CHK[State Checker<br/>Protocol Compliance]
-        COV[Coverage Collector<br/>Functional Coverage]
-        TRACE[Trace Manager<br/>Transaction Logging]
-    end
-    
-    SEQ -->|stimulus| L1
-    SEQ -->|stimulus| L2
-    L1 -->|drive| CACHE
-    L2 -->|drive| CACHE
-    CACHE -->|observe| L1
-    CACHE -->|observe| L2
-    L1 -->|events| STATE
-    L2 -->|events| STATE
-    L1 -->|events| FUNC
-    L2 -->|events| FUNC
-    STATE -->|validate| CHK
-    FUNC -->|compare| SB
-    L1 -->|coverage| COV
-    L2 -->|coverage| COV
-    L1 -->|trace| TRACE
-    L2 -->|trace| TRACE
-```
-
+``
 ## Project Objectives
 - Demonstrate protocol compliance for MESI/MOESI caches interacting over shared interconnects.
 - Guarantee single-Modified ownership, timely invalidations, and consistent data visibility across cores.
@@ -204,6 +159,6 @@ graph TB
 - Shared models (`cache_state_model`, `cache_model_mgr`) can be queried during debug to reconstruct coherence state at any point in the simulation.
 - Scoreboard and checker messages include address, expected versus observed state/data, and owning agent to speed diagnosis.
 
-## Author & Credits\nCreated by Teja Raghuveer. Inspired by collaborative CPU verification efforts that emphasize rigorous coherency validation. Feedback and collaboration are welcome; feel free to open issues or reach out for integration guidance.\n\n## Contact\n- **Name:** Teja Raghuveer\n- **Email:** tejaraghuveer@gmail.com\n- **LinkedIn:** [raghu-veer](https://www.linkedin.com/in/raghu-veer-856746289/)
-
+## Author & Credits
+Created by Teja Raghuveer. Inspired by collaborative CPU verification efforts that emphasize rigorous coherency validation. Feedback and collaboration are welcome; feel free to open issues or reach out for integration guidance.
 
